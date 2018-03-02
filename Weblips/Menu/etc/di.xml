@@ -9,4 +9,11 @@
     </type>
     <preference for="Weblips\Menu\Api\Data\ItemInterface" type="Weblips\Menu\Model\Item" />
     <preference for="Weblips\Menu\Api\ItemRepositoryInterface" type="Weblips\Menu\Model\ItemRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory" >
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="weblips_items_grid_data_source" xsi:type="string">Weblips\Menu\Model\ResourceModel\Item\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
