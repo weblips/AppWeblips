@@ -22,6 +22,15 @@ class UpgradeSchema implements UpgradeSchemaInterface {
                     ]
             );
         }
+        
+        if (version_compare($context->getVersion(), '2.2.0', '<=')) {
+            $setup->getConnection()->addColumn(
+                    $setup->getTable('sales_order_grid'), 'base_tax_amount', [
+                'type' => Table::TYPE_DECIMAL,
+                'comment' => 'Base Tax Amount'
+                    ]
+            );
+        }
 
         $setup->endSetup();
     }

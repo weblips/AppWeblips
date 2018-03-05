@@ -14,7 +14,8 @@ class DataProvider extends AbstractDataProvider {
             $requestFieldName, 
             $collectionFactory,
             array $meta = array(), 
-            array $data = array()) {
+            array $data = array()) 
+            {
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->collection = $collectionFactory->create();
     }
