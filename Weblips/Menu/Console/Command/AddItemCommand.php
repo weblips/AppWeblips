@@ -43,4 +43,6 @@ class AddItemCommand extends Command {
         //$this->eventManager->dispatch('weblips_command', ['object' => $item] );
         return Cli::RETURN_SUCCESS;
     }
+    
+    //
 }
