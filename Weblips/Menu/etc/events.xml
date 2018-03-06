@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- 
+    weblips_sample_item - prefix in Module/Item
+    save_after 
+    -->
+    <event name="weblips_sample_item_save_after">
+        <observer name="weblips_logger" instance="Weblips\Menu\Observer\Logger" />
+    </event>
+</config>

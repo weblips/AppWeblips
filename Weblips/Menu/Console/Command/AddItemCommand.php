@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 use Magento\Framework\Console\Cli;
 use Weblips\Menu\Model\ItemFactory;
+use Psr\Log;
 
 class AddItemCommand extends Command {
 
@@ -15,12 +16,9 @@ class AddItemCommand extends Command {
     const INPUT_KEY_DESCRIPTIN = 'description';
 
     private $itemFactory;
-    
-    private $logger;
 
-    public function __construct(ItemFactory $itemFactory, \Psr\Log\LoggerInterface $logger) {
+    public function __construct(ItemFactory $itemFactory) {
         $this->itemFactory = $itemFactory;
-        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -40,7 +38,9 @@ class AddItemCommand extends Command {
         $item->setDescription($input->getArgument(self::INPUT_KEY_DESCRIPTIN));
         $item->setIsObjectNew(true);
         $item->save();
-        $this->logger->debug('Item was created!');
+        //$this->logger->debug('Item was created!');
+        //add no pefix + event
+        //$this->eventManager->dispatch('weblips_command', ['object' => $item] );
         return Cli::RETURN_SUCCESS;
     }
 }

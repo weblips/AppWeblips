@@ -46,7 +46,15 @@
             </argument>
         </arguments>
     </virtualType>
+    <!-- Without observer 
     <type name="Weblips\Menu\Console\Command\AddItemCommand" >
+        <arguments>
+            <argument name="logger" xsi:type="object">WeblipsLogger</argument>
+        </arguments>
+    </type>
+    -->
+    <!-- Add observer -->
+    <type name="Weblips\Menu\Observer\Logger" >
         <arguments>
             <argument name="logger" xsi:type="object">WeblipsLogger</argument>
         </arguments>
