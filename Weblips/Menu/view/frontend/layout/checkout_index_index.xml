@@ -34,6 +34,9 @@
                                                                 <item name="fax" xsi:type="array">
                                                                     <item name="visible" xsi:type="boolean">false</item>
                                                                 </item>
+                                                                <item name="postcode" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                                </item>
                                                             </item>
                                                         </item>
                                                     </item>

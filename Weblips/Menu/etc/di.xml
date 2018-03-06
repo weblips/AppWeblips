@@ -16,6 +16,7 @@
             </argument>
         </arguments>
     </type>
+    <!-- extends magento Base -->
     <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
         <arguments>
             <argument name="columns" xsi:type="array">
@@ -23,4 +24,31 @@
             </argument>
         </arguments>
     </virtualType>
+    <!--
+    P1
+    <preference for="Magento\Framework\Logger\Handler\Debug" type="Weblips\Menu\Model\DebugHandler" />
+    P2
+     overraid default handler magento
+    <type name="Magento\Framework\Logger\Monolog" >
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Weblips\Menu\Model\DebugHandler</item>
+            </argument>
+        </arguments>
+    </type>
+    -->
+    <virtualType name="WeblipsLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="name" xsi:type="string">main</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Magento\Framework\Logger\Handler\System</item>
+                <item name="debug" xsi:type="object">Weblips\Menu\Model\DebugHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Weblips\Menu\Console\Command\AddItemCommand" >
+        <arguments>
+            <argument name="logger" xsi:type="object">WeblipsLogger</argument>
+        </arguments>
+    </type>
 </config>

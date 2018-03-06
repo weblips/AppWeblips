@@ -15,9 +15,12 @@ class AddItemCommand extends Command {
     const INPUT_KEY_DESCRIPTIN = 'description';
 
     private $itemFactory;
+    
+    private $logger;
 
-    public function __construct(ItemFactory $itemFactory) {
+    public function __construct(ItemFactory $itemFactory, \Psr\Log\LoggerInterface $logger) {
         $this->itemFactory = $itemFactory;
+        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -37,6 +40,7 @@ class AddItemCommand extends Command {
         $item->setDescription($input->getArgument(self::INPUT_KEY_DESCRIPTIN));
         $item->setIsObjectNew(true);
         $item->save();
+        $this->logger->debug('Item was created!');
         return Cli::RETURN_SUCCESS;
     }
 }
