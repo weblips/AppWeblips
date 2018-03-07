@@ -59,4 +59,7 @@
             <argument name="logger" xsi:type="object">WeblipsLogger</argument>
         </arguments>
     </type>
+    <type name="Weblips\Menu\Console\Command\AddItemCommand" >
+            <plugin name="console_logging" type="Weblips\Menu\Plugin\Logger" />
+    </type>
 </config>
