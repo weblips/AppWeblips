@@ -2,6 +2,7 @@
 /*
  * @ \Weblips\Menu\Block\Hello $block
  */
+echo $block->getLabel();
 foreach ($block->getItems() as $item) : ?>
 <p><?=$item->getId(), ' = ',$item->getName(),' : ', $item->getDescription() ?></p>
 <?php endforeach; ?>
